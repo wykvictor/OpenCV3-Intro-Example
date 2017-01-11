@@ -1,0 +1,21 @@
+add_executable(8_CamShiftDemo 8_CamShiftDemo/8_CamShiftDemo.cpp)
+target_link_libraries(8_CamShiftDemo ${OpenCV_LIBS})
+
+add_executable(9_OpticalFlow 9_OpticalFlow/9_OpticalFlow.cpp)
+target_link_libraries(9_OpticalFlow ${OpenCV_LIBS})
+
+add_executable(10_lkdemo 10_lkdemo/10_lkdemo.cpp)
+target_link_libraries(10_lkdemo ${OpenCV_LIBS})
+
+add_executable(11_ObjectDetection 11_ObjectDetection/11_ObjectDetection.cpp)
+target_link_libraries(11_ObjectDetection ${OpenCV_LIBS})
+
+add_executable(12_SupportVectorMachines 12_SupportVectorMachines/12_SupportVectorMachines.cpp)
+target_link_libraries(12_SupportVectorMachines ${OpenCV_LIBS})
+
+add_executable(13_SVMForNonLinearlySeparableData 13_SVMForNonLinearlySeparableData/13_SVMForNonLinearlySeparableData.cpp)
+target_link_libraries(13_SVMForNonLinearlySeparableData ${OpenCV_LIBS})
+
+set_property(TARGET 8_CamShiftDemo 9_OpticalFlow 10_lkdemo 11_ObjectDetection 12_SupportVectorMachines 13_SVMForNonLinearlySeparableData PROPERTY FOLDER chapter2)
+
+add_sub_directory_executables(chapter2)
