@@ -8,6 +8,11 @@ find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 link_directories(${OpenCV_LIB_DIR})
 
+# copy image files into build folder as the input files
+file(GLOB_RECURSE IMAGE_FILES "*.jpg" "*.avi")
+# install(FILES ${IMAGE_FILES} DESTINATION ${CMAKE_BINARY_DIR}) # need to launch INSTALL target
+file(COPY ${IMAGE_FILES} DESTINATION ${CMAKE_BINARY_DIR})
+
 function(add_sub_directory_executables folder)
   message("Processing folder: " ${folder})
   file(GLOB ALL_SUB RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/${folder} ${folder}/*)
