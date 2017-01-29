@@ -8,7 +8,9 @@
 //		2014年12月 Revised by @浅墨_毛星云
 //------------------------------------------------------------------------------------------------
 
-
+#include <opencv2/core/cuda.hpp>
+#include <opencv2/cudaimgproc.hpp>
+#include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 using namespace cv;
@@ -28,7 +30,7 @@ int main( )
 	//	描述：二、初级图像混合
 	//--------------------------------------------------------------------------------------------------
 	//载入图片
-	Mat image= imread("dota.jpg",199);
+	Mat image= imread("dota.jpg");
 	Mat logo= imread("dota_logo.jpg");
 
 	//载入后先显示
@@ -58,6 +60,11 @@ int main( )
 	//输出一张jpg图片到工程目录下
 	imwrite("由imwrite生成的图片.jpg",image);
 
+  cuda::GpuMat d_image;
+  d_image.upload(image);
+  namedWindow("Gpumat", WINDOW_OPENGL);
+  cuda::cvtColor(d_image, d_image, cv::COLOR_BGR2GRAY);
+  imshow("Gpumat", d_image);
 	waitKey();
 
 	return 0;
