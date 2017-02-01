@@ -9,7 +9,7 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 link_directories(${OpenCV_LIB_DIR})
 
 # copy image files into build folder as the input files
-file(GLOB_RECURSE IMAGE_FILES "*.jpg" "*.avi")
+file(GLOB_RECURSE IMAGE_FILES "*.jpg" "*.png" "*.avi")
 # install(FILES ${IMAGE_FILES} DESTINATION ${CMAKE_BINARY_DIR}) # need to launch INSTALL target
 file(COPY ${IMAGE_FILES} DESTINATION ${CMAKE_BINARY_DIR})
 
@@ -33,3 +33,5 @@ endfunction()
 # add_subdirectory(chapter2)  # use the above function instead of the sub cmake file
 add_sub_directory_executables(chapter2)
 add_sub_directory_executables(chapter3)
+add_sub_directory_executables(chapter4)
+add_sub_directory_executables(chapter5)
