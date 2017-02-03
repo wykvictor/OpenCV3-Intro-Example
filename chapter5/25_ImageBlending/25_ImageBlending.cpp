@@ -23,6 +23,7 @@ using namespace std;
 //	描述：全局函数声明
 //-----------------------------------------------------------------------------------------------
 bool  ROI_AddImage();
+bool  ROI_AddImage2();
 bool  LinearBlending();
 bool  ROI_LinearBlending();
 void   ShowHelpText();
@@ -35,7 +36,7 @@ int main(   )
 	system("color 6F");
 	ShowHelpText();
 
-	if(ROI_AddImage( )&& LinearBlending( )&&ROI_LinearBlending( ))
+  if (ROI_AddImage() && ROI_AddImage2() && LinearBlending() && ROI_LinearBlending())
 	{
 		cout<<endl<<"\n运行成功，得出了需要的图像";
 	}
@@ -87,6 +88,28 @@ bool  ROI_AddImage()
 	imshow("<1>利用ROI实现图像叠加示例窗口",srcImage1);
 
 	return true;
+}
+
+bool  ROI_AddImage2()
+{
+
+  // 【1】读入图像
+  Mat srcImage1 = imread("dota_pa.jpg");
+  Mat logoImage = imread("dota_logo.jpg");
+  if (!srcImage1.data) { printf("读取srcImage1错误~！ \n"); return false; }
+  if (!logoImage.data) { printf("读取logoImage错误~！ \n"); return false; }
+
+  // 【2】定义一个Mat类型并给其设定ROI区域
+  Mat imageROI = srcImage1(Rect(200, 250, logoImage.cols, logoImage.rows));
+
+  //【4】将掩膜拷贝到ROI
+  logoImage.copyTo(imageROI);
+
+  // 【5】显示结果
+  namedWindow("<1>利用ROI实现图像叠加示例窗口-2");
+  imshow("<1>利用ROI实现图像叠加示例窗口-2", srcImage1);
+
+  return true;
 }
 
 
