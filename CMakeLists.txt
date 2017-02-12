@@ -9,7 +9,7 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 link_directories(${OpenCV_LIB_DIR})
 
 # copy image files into build folder as the input files
-file(GLOB_RECURSE IMAGE_FILES "*.jpg" "*.png" "*.avi")
+file(GLOB_RECURSE IMAGE_FILES "*.jpg" "*.png" "*.avi" "*.yaml")
 # install(FILES ${IMAGE_FILES} DESTINATION ${CMAKE_BINARY_DIR}) # need to launch INSTALL target
 file(COPY ${IMAGE_FILES} DESTINATION ${CMAKE_BINARY_DIR})
 
