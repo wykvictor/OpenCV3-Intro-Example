@@ -49,8 +49,8 @@ int main(  )
 
 	//【1】参数准备
 	//定义两组点，代表两个三角形
-	Point2f srcTriangle[3];
-	Point2f dstTriangle[3];
+	Point2f srcTriangle[4];
+	Point2f dstTriangle[4];
 	//定义一些Mat变量
 	Mat rotMat( 2, 3, CV_32FC1 );
 	Mat warpMat( 2, 3, CV_32FC1 );
@@ -76,6 +76,14 @@ int main(  )
 
 	//【5】对源图像应用刚刚求得的仿射变换
 	warpAffine( srcImage, dstImage_warp, warpMat, dstImage_warp.size() );
+
+  // 用getperspective
+  srcTriangle[3] = Point2f(static_cast<float>(srcImage.cols - 1), static_cast<float>(srcImage.rows - 1));
+  dstTriangle[3] = Point2f(static_cast<float>(srcImage.cols*0.8), static_cast<float>(srcImage.rows*0.6));
+  Mat warp_mat_perspect = getPerspectiveTransform(srcTriangle, dstTriangle);
+  Mat dstImage_warpperspect;
+  warpPerspective(srcImage, dstImage_warpperspect, warp_mat_perspect, dstImage_warpperspect.size());
+  imshow("【经过WarpPerspective后的图像】", dstImage_warpperspect);
 
 	//【6】对图像进行缩放后再旋转
 	// 计算绕图像中点顺时针旋转50度缩放因子为0.6的旋转矩阵
