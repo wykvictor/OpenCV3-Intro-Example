@@ -47,7 +47,7 @@ int main( )
 	ShowHelpText();
 
 	//载入原始图和Mat变量定义   
-	Mat g_srcImage = imread("1.jpg");  //工程目录下应该有一张名为1.jpg的素材图
+	Mat g_srcImage = imread("64.jpg");  //工程目录下应该有一张名为64.jpg的素材图
 
 	//显示原始图  
 	imshow("【原始图】", g_srcImage);  

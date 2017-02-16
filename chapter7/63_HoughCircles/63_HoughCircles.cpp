@@ -24,7 +24,7 @@ using namespace std;
 int main( )
 {
 	//【1】载入原始图、Mat变量定义   
-	Mat srcImage = imread("1.jpg");  //工程目录下应该有一张名为1.jpg的素材图
+	Mat srcImage = imread("63.jpg");  //工程目录下应该有一张名为1.jpg的素材图
 	Mat midImage,dstImage;//临时变量和目标图的定义
 
 	//【2】显示原始图

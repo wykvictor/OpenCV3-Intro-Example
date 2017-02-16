@@ -57,7 +57,7 @@ int main(  )
 	Mat srcImage, dstImage_warp, dstImage_warp_rotate;
 
 	//【2】加载源图像并作一些初始化
-	srcImage = imread( "1.jpg", 1 );
+	srcImage = imread( "67.jpg", 1 );
 	if(!srcImage.data ) { printf("读取图片错误，请确定目录下是否有imread函数指定的图片存在~！ \n"); return false; } 
 	// 设置目标图像的大小和类型与源图像一致
 	dstImage_warp = Mat::zeros( srcImage.rows, srcImage.cols, srcImage.type() );

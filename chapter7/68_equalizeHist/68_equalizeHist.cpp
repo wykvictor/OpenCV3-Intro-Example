@@ -24,7 +24,7 @@ int main( )
 {
 	// 【1】加载源图像
 	Mat srcImage, dstImage;
-	srcImage = imread( "1.jpg", 1 );
+	srcImage = imread( "68.jpg", 1 );
 	if(!srcImage.data ) { printf("读取图片错误，请确定目录下是否有imread函数指定图片存在~！ \n"); return false; } 
 
 	// 【2】转为灰度图并显示出来

@@ -28,7 +28,7 @@ int main( )
 	Mat src,src_gray,dst, abs_dst;
 
 	//【1】载入原始图  
-	src = imread("1.jpg");  //工程目录下应该有一张名为1.jpg的素材图
+	src = imread("58.jpg");  //工程目录下应该有一张名为1.jpg的素材图
 
 	//【2】显示原始图 
 	imshow("【原始图】图像Laplace变换", src); 
@@ -47,6 +47,9 @@ int main( )
 
 	//【7】显示效果图
 	imshow( "【效果图】图像Laplace变换", abs_dst );
+
+  Laplacian(src_gray, dst, CV_8U, 3, 1, 0, BORDER_DEFAULT);
+  imshow("【效果图】图像Laplace变换 - Use CV_8U", dst);
 
 	waitKey(0); 
 
