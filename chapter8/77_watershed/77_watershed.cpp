@@ -50,7 +50,7 @@ int main( int argc, char** argv )
 	ShowHelpText( );
 
 	//【1】载入原图并显示，初始化掩膜和灰度图
-	g_srcImage = imread("1.jpg", 1);
+	g_srcImage = imread("77.jpg", 1);
 	imshow( WINDOW_NAME1, g_srcImage );
 	Mat srcImage,grayImage;
 	g_srcImage.copyTo(srcImage);
@@ -101,7 +101,9 @@ int main( int argc, char** argv )
 			//循环绘制出轮廓
 			for( int index = 0; index >= 0; index = hierarchy[index][0], compCount++ )
 				drawContours(maskImage, contours, index, Scalar::all(compCount+1), -1, 8, hierarchy, INT_MAX);
-
+      Mat show;
+      convertScaleAbs(maskImage, show);
+      imshow("maskImage", show);
 			//compCount为零时的处理
 			if( compCount == 0 )
 				continue;

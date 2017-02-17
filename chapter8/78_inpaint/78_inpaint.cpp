@@ -95,7 +95,7 @@ int main( int argc, char** argv )
 	ShowHelpText();
 
 	//载入原始图并进行掩膜的初始化
-	Mat srcImage = imread("1.jpg", -1);
+	Mat srcImage = imread("78.jpg", -1);
 	if(!srcImage.data ) { printf("读取图片错误，请确定目录下是否有imread函数指定图片存在~！ \n"); return false; } 
 	srcImage0 = srcImage.clone();
 	srcImage1 = srcImage.clone();

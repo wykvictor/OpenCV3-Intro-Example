@@ -52,7 +52,7 @@ int main( )
 	ShowHelpText( );
 
 	//【1】载入3通道的原图像
-	g_srcImage = imread( "1.jpg", 1 );
+	g_srcImage = imread( "75.jpg", 1 );
 	if(!g_srcImage.data ) { printf("读取图片错误，请确定目录下是否有imread函数指定的图片存在~！ \n"); return false; }  
 
 	//【2】得到原图的灰度图像并进行平滑
@@ -97,7 +97,7 @@ void on_ContoursChange(int, void* )
 	//一个循环，遍历所有部分，进行本程序最核心的操作
 	for( unsigned int i = 0; i < contours.size(); i++ )
 	{ 
-		approxPolyDP( Mat(contours[i]), contours_poly[i], 3, true );//用指定精度逼近多边形曲线 
+		approxPolyDP(contours[i], contours_poly[i], 3, true );//用指定精度逼近多边形曲线 
 		boundRect[i] = boundingRect( Mat(contours_poly[i]) );//计算点集的最外面（up-right）矩形边界
 		minEnclosingCircle( contours_poly[i], center[i], radius[i] );//对给定的 2D点集，寻找最小面积的包围圆形 
 	}

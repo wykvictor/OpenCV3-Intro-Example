@@ -58,7 +58,7 @@ int main(  )
 	ShowHelpText();
 
 	// 加载源图像
-	g_srcImage = imread( "1.jpg", 1 );
+	g_srcImage = imread( "72.jpg", 1 );
 
 	// 将原图转换成灰度图并进行模糊降
 	cvtColor( g_srcImage, g_grayImage, COLOR_BGR2GRAY );
@@ -83,7 +83,7 @@ void on_ThreshChange(int, void* )
 {
 	// 对图像进行二值化，控制阈值
 	threshold( g_grayImage, g_thresholdImage_output, g_nThresh, 255, THRESH_BINARY );
-
+  imshow("二值图", g_thresholdImage_output);
 	// 寻找轮廓
 	findContours( g_thresholdImage_output, g_vContours, g_vHierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE, Point(0, 0) );
 
@@ -100,7 +100,7 @@ void on_ThreshChange(int, void* )
 	{
 		Scalar color = Scalar( g_rng.uniform(0, 255), g_rng.uniform(0,255), g_rng.uniform(0,255) );
 		drawContours( drawing, g_vContours, i, color, 1, 8, vector<Vec4i>(), 0, Point() );
-		drawContours( drawing, hull, i, color, 1, 8, vector<Vec4i>(), 0, Point() );
+		drawContours( drawing, hull, i, color);
 	}
 
 	// 显示效果图

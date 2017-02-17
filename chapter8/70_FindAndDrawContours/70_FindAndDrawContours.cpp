@@ -59,7 +59,7 @@ int main( int argc, char** argv )
 	ShowHelpText( );
 
 	// 加载源图像
-	g_srcImage = imread( "1.jpg", 1 );
+	g_srcImage = imread( "70.jpg", 1 );
 	if(!g_srcImage.data ) { printf("读取图片错误，请确定目录下是否有imread函数指定的图片存在~！ \n"); return false; } 
 
 	// 转成灰度并模糊化降噪

@@ -55,7 +55,7 @@ int main( int argc, char** argv )
 
 	ShowHelpText();
 	// 读入原图像, 返回3通道图像数据
-	g_srcImage = imread( "1.jpg", 1 );
+	g_srcImage = imread( "76.jpg", 1 );
 
 	// 把原图像转化成灰度图像并进行平滑
 	cvtColor( g_srcImage, g_grayImage, COLOR_BGR2GRAY );
@@ -89,7 +89,7 @@ void on_ThreshChange(int, void* )
 	for(unsigned int i = 0; i < g_vContours.size(); i++ )
 	{ mu[i] = moments( g_vContours[i], false ); }
 
-	//  计算中心矩
+	//  计算中心矩, 中点
 	vector<Point2f> mc( g_vContours.size() );
 	for( unsigned int i = 0; i < g_vContours.size(); i++ )
 	{ mc[i] = Point2f( static_cast<float>(mu[i].m10/mu[i].m00), static_cast<float>(mu[i].m01/mu[i].m00 )); }
