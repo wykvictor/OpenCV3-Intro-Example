@@ -26,7 +26,7 @@ using namespace std;
 //------------------------------------------------------------------------------------------------ 
 #define WINDOW_NAME1 "【原始图窗口】"					//为窗口标题定义的宏 
 #define WINDOW_NAME2 "【效果图窗口】"					//为窗口标题定义的宏 
-
+#define WINDOW_NAME3 "【Countours窗口】"					//为窗口标题定义的宏 
 
 
 //-----------------------------------【全局变量声明部分】--------------------------------------
@@ -95,16 +95,18 @@ void on_ThreshChange(int, void* )
 	}
 
 	// 绘出轮廓及其凸包
-	Mat drawing = Mat::zeros( g_thresholdImage_output.size(), CV_8UC3 );
+	Mat drawing1 = Mat::zeros( g_thresholdImage_output.size(), CV_8UC3 );
+  Mat drawing2 = Mat::zeros(g_thresholdImage_output.size(), CV_8UC3);
 	for(unsigned  int i = 0; i< g_vContours.size(); i++ )
 	{
 		Scalar color = Scalar( g_rng.uniform(0, 255), g_rng.uniform(0,255), g_rng.uniform(0,255) );
-		drawContours( drawing, g_vContours, i, color, 1, 8, vector<Vec4i>(), 0, Point() );
-		drawContours( drawing, hull, i, color);
+		drawContours( drawing2, g_vContours, i, color, 1, 8, vector<Vec4i>(), 0, Point() );
+		drawContours( drawing1, hull, i, color);
 	}
 
 	// 显示效果图
-	imshow( WINDOW_NAME2, drawing );
+	imshow( WINDOW_NAME2, drawing1 );
+  imshow( WINDOW_NAME3, drawing2);
 }
 
 
